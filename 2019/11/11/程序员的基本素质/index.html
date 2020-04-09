@@ -22,9 +22,14 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="CAP 定理CAP 定理是分布式系统设计中最基础，也是最为关键的理论。它指出，分布式数据存储不可能同时满足以下三个条件。
+<meta name="description" content="程序员的基本素质
+重构是程序员的主力技能。
 
-一致性（Consistency）：每次读取要么获得最近写入的数据，要么..." />
+工作日志能提升脑容量。
+
+先用profiler调查，才有脸谈优化。
+
+注释贵精不贵多。杜绝大姨妈般的“例注”。漫山遍野的碎碎念注释，实际就是背景噪音..." />
 
 
 <meta name="robots" content="all" />
@@ -35,7 +40,7 @@
 
 <title>
     
-    CAP 定理 |
+    程序员的基本素质 |
     
     Leevai
 </title>
@@ -144,9 +149,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="CAP 定理">
+        <h1 id="程序员的基本素质">
             
-            CAP 定理
+            程序员的基本素质
             
         </h1>
         <div class="post-meta">
@@ -169,7 +174,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2020/01/28</span>
+            2019/11/11</span>
     </span>
     
     
@@ -179,14 +184,89 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="CAP-定理"><a href="#CAP-定理" class="headerlink" title="CAP 定理"></a>CAP 定理</h1><p>CAP 定理是分布式系统设计中最基础，也是最为关键的理论。它指出，分布式数据存储不可能同时满足以下三个条件。</p>
-<ul>
-<li>一致性（Consistency）：每次读取要么获得最近写入的数据，要么获得一个错误。</li>
-<li>可用性（Availability）：每次请求都能获得一个（非错误）响应，但不保证返回的是最新写入的数据。</li>
-<li>分区容忍（Partition tolerance）：尽管任意数量的消息被节点间的网络丢失（或延迟），系统仍继续运行<br>也就是说，CAP 定理表明，在存在网络分区的情况下，一致性和可用性必须二选一。而在没有发生网络故障时，即分布式系统正常运行时，一致性和可用性是可以同时被满足的。这里需要注意的是，CAP 定理中的一致性与 ACID 数据库事务中的一致性截然不同。掌握 CAP 定理，尤其是能够正确理解 C、A、P 的含义，对于系统架构来说非常重要。因为对于分布式系统来说，网络故障在所难免，如何在出现网络故障的时候，维持系统按照正常的行为逻辑运行就显得尤为重要。你可以结合实际的业务场景和具体需求，来进行权衡。例如，对于大多数互联网应用来说（如门户网站），因为机器数量庞大，部署节点分散，网络故障是常态，可用性是必须要保证的，所以只有舍弃一致性来保证服务的 AP。而对于银行等，需要确保一致性的场景，通常会权衡 CA 和 CP 模型，CA 模型网络故障时完全不可用，CP 模型具备部分可用性。</li>
-<li>CA (consistency + availability)，这样的系统关注一致性和可用性，它需要非常严格的全体一致的协议，比如“两阶段提交”（2PC）。CA 系统不能容忍网络错误或节点错误，一旦出现这样的问题，整个系统就会拒绝写请求，因为它并不知道对面的那个结点是否挂掉了，还是只是网络问题。唯一安全的做法就是把自己变成只读的。</li>
-<li>CP (consistency + partition tolerance)，这样的系统关注一致性和分区容忍性。它关注的是系统里大多数人的一致性协议，比如：Paxos 算法（Quorum 类的算法）。这样的系统只需要保证大多数结点数据一致，而少数的结点会在没有同步到最新版本的数据时变成不可用的状态。这样能够提供一部分的可用性。</li>
-<li>AP (availability + partition tolerance)，这样的系统关心可用性和分区容忍性。因此，这样的系统不能达成一致性，需要给出数据冲突，给出数据冲突就需要维护数据版本。Dynamo 就是这样的系统。</li>
+        <h1 id="程序员的基本素质"><a href="#程序员的基本素质" class="headerlink" title="程序员的基本素质"></a>程序员的基本素质</h1><ul>
+<li><p>重构是程序员的主力技能。</p>
+</li>
+<li><p>工作日志能提升脑容量。</p>
+</li>
+<li><p>先用profiler调查，才有脸谈优化。</p>
+</li>
+<li><p>注释贵精不贵多。杜绝大姨妈般的“例注”。漫山遍野的碎碎念注释，实际就是背景噪音。</p>
+</li>
+<li><p>普通程序员+google=超级程序员。</p>
+</li>
+<li><p>单元测试总是合算的。</p>
+</li>
+<li><p>不要先写框架再写实现。最好反过来，从原型中提炼框架。</p>
+</li>
+<li><p>代码结构清晰，其它问题都不算事儿。</p>
+</li>
+<li><p>好的项目作风硬派，一键测试，一键发布，一键部署; 烂的项目生性猥琐，口口相传，不立文字，神神秘秘。</p>
+</li>
+<li><p>编码不要畏惧变化，要拥抱变化。</p>
+</li>
+<li><p>常充电。程序员只有一种死法：土死的。</p>
+</li>
+<li><p>编程之事，隔离是方向，起名是关键，测试是主角，调试是补充，版本控制是后悔药。</p>
+</li>
+<li><p>一行代码一个兵。形成建制才能有战斗力。单位规模不宜过大，千人班，万人排易成万人坑。</p>
+</li>
+<li><p>重构/优化/修复Bug，同时只能作一件。</p>
+</li>
+<li><p>简单模块注意封装，复杂模块注意分层。</p>
+</li>
+<li><p>人脑性能有限，整洁胜于杂乱。读不懂的代码，尝试整理下格式; 不好用的接口，尝试重新封装下。</p>
+</li>
+<li><p>迭代速度决定工作强度。想多快好省，就从简化开发流程，加快迭代速度开始。</p>
+</li>
+<li><p>忘掉优化写代码。过早优化等同恶意破坏；忘掉代码作优化。优化要基于性能测试，而不是纠结于字里行间。</p>
+</li>
+<li><p>最好的工具是纸笔;其次好的是markdown。</p>
+</li>
+<li><p>leader问任务时间，若答不上来，可能是任务拆分还不够细。</p>
+</li>
+<li><p>宁可多算一周，不可少估一天。过于“乐观”容易让boss受惊吓。</p>
+</li>
+<li><p>最有用的语言是English。其次的可能是Python。</p>
+</li>
+<li><p>百闻不如一见。画出结果，一目了然。调试耗时将大大缩短。</p>
+</li>
+<li><p>资源、代码应一道受版本管理。资源匹配错误远比代码匹配错误更难排查。</p>
+</li>
+<li><p>不要基于想象开发， 要基于原型开发。原型的价值是快速验证想法，帮大家节省时间。</p>
+</li>
+<li><p>序列化首选明文文本 。诸如二进制、混淆、加密、压缩等等有需要时再加。</p>
+</li>
+<li><p>编译器永远比你懂微观优化。只能向它不擅长的方向努力。</p>
+</li>
+<li><p>不要定过大、过远、过细的计划。即使定了也没有用。</p>
+</li>
+<li><p>至少半数时间将花在集成上。时间，时间，时间总是不够。</p>
+</li>
+<li><p>与主流意见/方法/风格/习惯相悖时，先检讨自己最可靠。</p>
+</li>
+<li><p>出现bug主动查，不管是不是你的。这能让你业务能力猛涨、个人形象飙升; 如果你的bug被别揪出来…..呵呵，那你会很被动。</p>
+</li>
+<li><p>不知怎么选技术书时就挑薄的。起码不会太贵，且你能看完。</p>
+</li>
+<li><p>git是最棒的。简单，可靠，免费。</p>
+</li>
+<li><p>仅对“可预测的非理性”抛断言。</p>
+</li>
+<li><p>Log要写时间与分类。并且要能重定向输出。</p>
+</li>
+<li><p>注释是稍差的文档。更好的是清晰的命名。让代码讲自己的故事。</p>
+</li>
+<li><p>造轮子是很好的锻炼方法。前提是你见过别的轮子。</p>
+</li>
+<li><p>code review最好以小组/结对的形式。对业务有一定了解，建议会更有价值（但不绝对）。而且不会成为负担。管理员个人review则很容易成team的瓶颈。</p>
+</li>
+<li><p>提问前先做调研。问不到点上既被鄙视，又浪费自己的时间。</p>
+</li>
+<li><p>永远别小看程序媛</p>
+</li>
+<li><p>对开发人员有用的定律、理论、原则和模式:<br><a href="https://github.com/nusr/hacker-laws-zh#unix-%e5%93%b2%e5%ad%a6-the-unix-philosophy" target="_blank" rel="noopener">https://github.com/nusr/hacker-laws-zh#unix-%e5%93%b2%e5%ad%a6-the-unix-philosophy</a></p>
+</li>
 </ul>
 
     </div>
@@ -206,18 +286,12 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/01/29/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E7%9A%84%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87%E5%92%8C%E8%B5%84%E6%96%99/" class="pre-post btn btn-default" title='分布式系统设计思想的相关论文和资料'>
+    <a href="/2020/01/28/CAP%20%E5%AE%9A%E7%90%86/" class="pre-post btn btn-default" title='CAP 定理'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            分布式系统设计思想的相关论文和资料</span>
+            CAP 定理</span>
     </a>
     
-    
-    <a href="/2019/11/11/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B4%A0%E8%B4%A8/" class="next-post btn btn-default" title='程序员的基本素质'>
-        <span class="hidden-lg">下一篇</span>
-        <span class="hidden-xs">
-            程序员的基本素质</span><i class="fa fa-angle-right fa-fw"></i>
-    </a>
     
 </div>
 
@@ -257,7 +331,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CAP-定理"><span class="toc-text">CAP 定理</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#程序员的基本素质"><span class="toc-text">程序员的基本素质</span></a></li></ol>
         
     </div>
 </aside>
